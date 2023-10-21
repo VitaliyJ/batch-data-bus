@@ -10,18 +10,18 @@ import (
 
 const batchWorkerTickDuration = 5 * time.Second
 
-type BatchUserCase interface {
+type BatchUseCase interface {
 	SendNextBatch(ctx context.Context) error
 }
 
 type BatchWorker struct {
 	ctx    context.Context
 	cancel context.CancelFunc
-	uc     BatchUserCase
+	uc     BatchUseCase
 }
 
-// NewBatchUserCase returns new BatchUserCase instance
-func NewBatchUserCase(uc BatchUserCase) *BatchWorker {
+// NewBatchWorker returns new BatchWorker instance
+func NewBatchWorker(uc BatchUseCase) *BatchWorker {
 	return &BatchWorker{
 		uc: uc,
 	}

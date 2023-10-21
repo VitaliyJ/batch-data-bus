@@ -32,7 +32,7 @@ func Run(cfg *config.Config) error {
 	)
 
 	// init workers
-	batchWorker := worker.NewBatchUserCase(batchUseCase)
+	batchWorker := worker.NewBatchWorker(batchUseCase)
 
 	// run workers
 	batchWorker.Start()
